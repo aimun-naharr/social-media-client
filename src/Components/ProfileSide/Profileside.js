@@ -1,5 +1,6 @@
 import React from 'react';
 import ProfileCard from '../../profileCard/ProfileCard';
+import FollowerCard from '../FollowerCard/FollowerCard';
 import LogoSearch from '../LogoSearch/LogoSearch';
 import './profileside.css'
 const Profileside = () => {
@@ -7,6 +8,7 @@ const Profileside = () => {
         <div className='profileside'>
             <LogoSearch></LogoSearch>
             <ProfileCard></ProfileCard>
+            <FollowerCard/>
         </div>
     );
 };
