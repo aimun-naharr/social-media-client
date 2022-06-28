@@ -15,6 +15,7 @@ const RightSide = () => {
             <img src={comment} alt=""/>
             </div>
             <TrendCard/>
+            
         </div>
     );
 };

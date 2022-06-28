@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import trendData from '../../Data/TrendData';
+import ShareModal from '../ShareModal/ShareModal';
 import './trendCard.css'
 const TrendCard = () => {
+    const [openModal, setOpenModal]=useState(false)
     return (
         <div className='trendCard'>
             <h3>Trends for you</h3>
@@ -15,7 +17,8 @@ const TrendCard = () => {
                 )
                 })
             }
-            <button className='button r-button'>Share</button>
+            <button className='button r-button' onClick={()=>{setOpenModal(true)}}>Share</button>
+            <ShareModal openModal={openModal} setOpenModal={setOpenModal}/>
         </div>
     );
 };
