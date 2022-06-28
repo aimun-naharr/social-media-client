@@ -1,0 +1,22 @@
+.infoCard{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--cardColor);
+    padding: 1rem;
+    border-radius: 1rem;
+width: 90%;
+}
+.infoHead{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.l-button{
+    height: 2.5rem;
+    width: 6rem;
+    align-self: flex-end;
+}
+.infoHead>svg:hover{
+cursor: pointer; 
+}
