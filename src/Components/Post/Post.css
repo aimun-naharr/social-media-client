@@ -7,10 +7,11 @@
     gap: 1rem;
 }
 .post>img{
+   
     width: 100%;
     border-radius: 0.5rem;
     object-fit: cover;
-    height: 20rem;
+    
 
 }
 .postReact{
