@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./PostShare.css";
 import ProfileImg from "../../img/profileImg.jpg";
 import { UilScenery } from "@iconscout/react-unicons";
@@ -9,11 +9,22 @@ import { UilSchedule } from "@iconscout/react-unicons";
 import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { uploadImage, uploadPost } from "../../Actions/uploadImage.js";
+import * as UserApi from '../../Api/UserRequest.js'
 
 const PostShare = () => {
   const loading=useSelector((state)=>state.postReducer.uploading)
   const user=useSelector((state)=>state.authReducer.authData)
   
+  const [profileUser, setProfileUser]=useState({})
+  useEffect(()=>{
+    const fetchProfileUser=async()=>{
+      
+        const profileUser=await UserApi.getUser(user.user._id)
+        setProfileUser(profileUser.data)
+        
+    }
+    fetchProfileUser()
+  },[profileUser])
   const serverPublic=process.env.REACT_APP_PUBLIC_FOLDER
   const dispatch=useDispatch()
   const [image, setImage] = useState(null);
@@ -55,7 +66,7 @@ const PostShare = () => {
   }
   return (
     <div className="postShare">
-      <img src={user.profilePicture? serverPublic + user.profilePicture: serverPublic+ "defaultProfile.jpg"} alt="profileImg" />
+      <img src={profileUser.profilePicture? serverPublic + profileUser.profilePicture: serverPublic+ "defaultProfile.jpg"} alt="profileImg" />
       <div>
         <input ref={desc} required type="text" placeholder="What's on your mind?" />
         <div className="postOptions">

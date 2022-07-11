@@ -9,7 +9,7 @@ const Auth = () => {
   const dispatch=useDispatch()
   const [isSignUp, setIsSignUP] = useState(false);
   const loading=useSelector((state)=>state.authReducer.loading)
-  console.log(loading)
+  
  
   const [data, setData] = useState({
     firstName: "",
