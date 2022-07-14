@@ -24,7 +24,7 @@ const PostShare = () => {
         
     }
     fetchProfileUser()
-  },[profileUser])
+  },[])
   const serverPublic=process.env.REACT_APP_PUBLIC_FOLDER
   const dispatch=useDispatch()
   const [image, setImage] = useState(null);
