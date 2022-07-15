@@ -14,6 +14,7 @@ const InfoCard = () => {
 
   const [profileUser, setProfileUser] = useState({});
   const { user } = useSelector((state) => state.authReducer.authData);
+  console.log(user)
   useEffect(() => {
     const fetchProfileUser = async () => {
       if (profileUserId === user._id) {
@@ -64,7 +65,7 @@ const InfoCard = () => {
       </div>
       <div className="info">
         <span>
-          <b>Works at </b>
+          <b>Job </b>
         </span>
         <span>{profileUser.worksAt}</span>
       </div>

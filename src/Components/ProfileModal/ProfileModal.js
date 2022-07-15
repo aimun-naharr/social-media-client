@@ -28,7 +28,7 @@ function ProfileModal({ openModal, setOpenModal, data }) {
 
   const handleSubmit=(e)=>{
     e.preventDefault()
-    console.log('updated')
+   
     let userData=formData
     if(profileImage){
       const data=new FormData()
@@ -95,7 +95,7 @@ function ProfileModal({ openModal, setOpenModal, data }) {
         <div>
           <input
             className="infoInput"
-            placeholder="Works At"
+            placeholder="Job"
             type="text"
             name="worksAt"
             onChange={handleChange}

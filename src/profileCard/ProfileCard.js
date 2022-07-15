@@ -7,17 +7,18 @@ import {Link} from 'react-router-dom'
 const ProfileCard = ({location}) => {
   const { user } = useSelector((state) => state.authReducer.authData)
   console.log(user)
-  // const [profileUser, setProfileUser]=useState({})
-  // console.log(user)
-  // useEffect(()=>{
-  //   const fetchProfileUser=async()=>{
+  const [profileUser, setProfileUser]=useState({})
+  console.log(user)
+  useEffect(()=>{
+    const fetchProfileUser=async()=>{
       
-  //       const updatedUser=await UserApi.getUser(user._id)
-  //       setProfileUser(updatedUser.data)
+        const updatedUser=await UserApi.getUser(user._id)
+        setProfileUser(updatedUser.data)
+        console.log(profileUser)
        
-  //   }
-  //   // fetchProfileUser()
-  // },[user])
+    }
+    fetchProfileUser()
+  },[user])
   const posts=useSelector((state)=>state.postReducer.posts)
   const serverPublic=process.env.REACT_APP_PUBLIC_FOLDER
   
@@ -29,7 +30,7 @@ const ProfileCard = ({location}) => {
       </div>
       <div className="profileName">
         <span>{user.firstName} {user.lastName}</span>
-        <span>{user.worksAt}</span>
+        <span>{profileUser.worksAt}</span>
       </div>
       <div className="followStatus">
         <hr />
